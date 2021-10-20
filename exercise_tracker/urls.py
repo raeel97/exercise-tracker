@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tracker.views import get_exercise_log
+from tracker.views import exercise_types, add_exercise_type
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_exercise_log, name="get_exercise_log"),
+    path('', exercise_types, name="exercise_types"),
+    path('add_exercise_type', add_exercise_type, name="add_exercise_type"),
 ]

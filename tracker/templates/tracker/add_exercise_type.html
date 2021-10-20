@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>This is the start of my block content located in add_exercise_types.html</h2>
+<p>Add a category type:</p>
+
+<form method="POST" action="add_exercise_type">
+    {% csrf_token %}
+    <div>
+        <p>
+            <label for="id_name">Name:</label>
+            <input type="text" name="exercise_type_name" id="id_name">
+        </p>
+    </div>
+    <div>
+        <p>
+            <label for="id_measurement">Unit of Measurement:</label>
+            <input type="text" name="exercise_type_measurement" id="id_measurement">
+        </p>
+    </div>
+    <div>
+        <p>
+            <button type="submit">Add Item:</button>
+        </p>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>This is the start of my block content located in exercise_types.html</h2>
+<p>Here's my category types:</p>
+
+<table>
+    {% for type in types %}
+        <tr>
+            <td>{{ type.name }}</td>
+            <td>{{ type.measurement }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="/add_exercise_type"> Add a new type of exercise:</a>
+{% endblock content %}
