@@ -11,8 +11,8 @@ def exercise_types(request):
 
 def add_exercise_type(request):
     if request.method == "POST":
-        name = request.POST.get('id_name')
-        measurement = request.POST.get('id_measurement')
+        name = request.POST.get('exercise_type_name')
+        measurement = request.POST.get('exercise_type_measurement')
         exercise_type.objects.create(name=name, measurement=measurement)
-        return redirect('get_exercise_types')
+        return redirect('exercise_types')
     return render(request, 'tracker/add_exercise_type.html')
