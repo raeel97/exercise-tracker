@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import exercise_type
-# Create your views here.
+from .forms import ExerciseTypeForm
+
+
 def exercise_types(request):
     types = exercise_type.objects.all()
     context = {
@@ -11,8 +13,12 @@ def exercise_types(request):
 
 def add_exercise_type(request):
     if request.method == "POST":
-        name = request.POST.get('exercise_type_name')
-        measurement = request.POST.get('exercise_type_measurement')
-        exercise_type.objects.create(name=name, measurement=measurement)
-        return redirect('exercise_types')
-    return render(request, 'tracker/add_exercise_type.html')
+        form = ExerciseTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('exercise_types')
+    form = ExerciseTypeForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'tracker/add_exercise_type.html', context) 

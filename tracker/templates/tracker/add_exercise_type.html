@@ -6,18 +6,7 @@
 
 <form method="POST" action="add_exercise_type">
     {% csrf_token %}
-    <div>
-        <p>
-            <label for="id_name">Name:</label>
-            <input type="text" name="exercise_type_name" id="id_name">
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="id_measurement">Unit of Measurement:</label>
-            <input type="text" name="exercise_type_measurement" id="id_measurement">
-        </p>
-    </div>
+    {{ form.as_p }}
     <div>
         <p>
             <button type="submit">Add Item:</button>
