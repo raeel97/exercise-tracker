@@ -9,6 +9,11 @@
         <tr>
             <td>{{ type.name }}</td>
             <td>{{ type.measurement }}</td>
+            <td>
+                <a href="/edit_exercise_type/{{ type.id }}">
+                    <button>Edit</button>
+                </a>
+            </td>
         </tr>
     {% endfor %}
 </table>

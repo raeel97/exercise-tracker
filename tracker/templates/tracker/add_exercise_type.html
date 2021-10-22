@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>This is the start of my block content located in add_exercise_types.html</h2>
-<p>Add a category type:</p>
+<h2>This is the start of my block content located in add_exercise_type.html</h2>
+<p>Add a exercise type:</p>
 
 <form method="POST" action="add_exercise_type">
     {% csrf_token %}
     {{ form.as_p }}
     <div>
         <p>
-            <button type="submit">Add Item:</button>
+            <button type="submit">Add Exercise Type:</button>
         </p>
     </div>
 </form>
