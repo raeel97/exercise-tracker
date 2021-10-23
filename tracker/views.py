@@ -36,3 +36,9 @@ def edit_exercise_type(request, type_id):
         'form': form
     }
     return render(request, 'tracker/edit_exercise_type.html', context)
+
+
+def delete_exercise_type(request, type_id):
+    type = get_object_or_404(exercise_type, id=type_id)
+    type.delete()
+    return redirect('exercise_types')

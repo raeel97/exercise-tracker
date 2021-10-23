@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tracker.views import exercise_types, add_exercise_type, edit_exercise_type
+from tracker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', exercise_types, name="exercise_types"),
-    path('add_exercise_type', add_exercise_type, name="add_exercise_type"),
-    path('edit_exercise_type/<type_id>', edit_exercise_type, name="edit_exercise_type"),
+    path('', views.exercise_types, name="exercise_types"),
+    path('add_exercise_type', views.add_exercise_type, name="add_exercise_type"),
+    path('edit_exercise_type/<type_id>', views.edit_exercise_type, name="edit_exercise_type"),
+    path('delete_exercise_type/<type_id>', views.delete_exercise_type, name="delete_exercise_type"),
 ]
