@@ -23,4 +23,7 @@ urlpatterns = [
     path('add_exercise_type', views.add_exercise_type, name="add_exercise_type"),
     path('edit_exercise_type/<type_id>', views.edit_exercise_type, name="edit_exercise_type"),
     path('delete_exercise_type/<type_id>', views.delete_exercise_type, name="delete_exercise_type"),
+    path('exercise_sessions', views.exercise_sessions, name="exercise_sessions"),
+    path('add_exercise_session', views.add_exercise_session, name="add_exercise_session"),
+    # path('edit_exercise_session/<session_id>', views.edit_exercise_session, name="edit_exercise_session"),
 ]
