@@ -58,7 +58,8 @@ def add_exercise_session(request):
         if form.is_valid():
             form.save()
             return redirect('exercise_sessions')
+    form = ExerciseSessionForm()        
     context = {
-        'sessions': sessions
+        'form': form
     }
     return render(request, 'tracker/add_exercise_sessions.html', context) 

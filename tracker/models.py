@@ -16,18 +16,15 @@ class exercise_type(models.Model):
 
 type_choices = exercise_type.objects.all()
 EXERCISE_TYPE_NAMES_LIST = []
-exercise_type_measurements = []
 for choice in type_choices:
     EXERCISE_TYPE_NAMES_LIST.append((choice.name, choice.name.upper()))
-    exercise_type_measurements.append(choice)
 EXERCISE_TYPE_NAMES = tuple(EXERCISE_TYPE_NAMES_LIST)
    
 
 class exercise_session(models.Model):
     date = models.DateField()
     type = models.CharField(max_length=20, null=False, choices=EXERCISE_TYPE_NAMES, blank=False, default='select exercise type')
-    measurement_name = exercise_type_measurements
-    measurement = models.IntegerField()
+    measurement = models.CharField(max_length=20, null=False, blank=False)
     additonal_notes = models.CharField(max_length=100, null=True, blank=True)
 
     
