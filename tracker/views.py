@@ -45,7 +45,7 @@ def delete_exercise_type(request, type_id):
 
 
 def exercise_sessions(request):
-    types = exercise_session.objects.all()
+    sessions = exercise_session.objects.all()
     context = {
         'sessions': sessions
     }

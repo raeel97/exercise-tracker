@@ -10,4 +10,9 @@ class ExerciseTypeForm(forms.ModelForm):
 class ExerciseSessionForm(forms.ModelForm):
     class Meta:
         model = exercise_session
-        fields = ['date', 'type', 'measurement', 'additonal_notes']
+        fields = [
+            'date', 
+            'type', 
+            'measurement', 
+            'additonal_notes'
+            ]
