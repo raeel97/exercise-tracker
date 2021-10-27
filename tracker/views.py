@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import exercise_type, exercise_session
 from .forms import ExerciseTypeForm, ExerciseSessionForm
 
-
 def exercise_types(request):
     types = exercise_type.objects.all()
     context = {
@@ -51,14 +50,13 @@ def exercise_sessions(request):
     }
     return render(request, 'tracker/exercise_sessions.html', context)
 
-
 def add_exercise_session(request):
     if request.method == "POST":
         form = ExerciseSessionForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('exercise_sessions')
-    form = ExerciseSessionForm()        
+    form = ExerciseSessionForm()
     context = {
         'form': form
     }
