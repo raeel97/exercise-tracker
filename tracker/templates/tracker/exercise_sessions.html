@@ -8,17 +8,18 @@
 <table>
     {% for session in sessions %}
         <tr>
-            <td>{{ session.type_select }}</td>
+            <td>{{ session.type_select.name }}</td>
             <td>{{ session.measurement }}</td>
-            <td>{{ session.date }}</td>
+            <td>{{ session.type_select.measurement }}</td>
+            <td>{{ session.session_date }}</td>
             <td>{{ session.additonal_notes }}</td>
             <td>
-                <a href="/edit_session/{{ session.id }}">
+                <a href="/edit_exercise_session/{{ session.id }}">
                     <button>Edit</button>
                 </a>
             </td>
             <td>
-                <a href="/delete_session/{{ session.id }}">
+                <a href="/delete_exercise_session/{{ session.id }}">
                     <button>Delete</button>
                 </a>
             </td>

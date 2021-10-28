@@ -60,4 +60,22 @@ def add_exercise_session(request):
     context = {
         'form': form
     }
-    return render(request, 'tracker/add_exercise_sessions.html', context) 
+    return render(request, 'tracker/add_exercise_sessions.html', context)
+    
+def edit_exercise_session(request, session_id):
+    session = get_object_or_404(exercise_session, id=session_id)
+    if request.method == "POST":
+        form = ExerciseSessionForm(request.POST, instance=session)
+        if form.is_valid():
+            form.save()
+            return redirect('exercise_sessions')
+    form = ExerciseSessionForm(instance=session)
+    context = {
+        'form': form
+    }
+    return render(request, 'tracker/edit_exercise_session.html', context) 
+
+def delete_exercise_session(request, session_id):
+    session = get_object_or_404(exercise_session, id=session_id)
+    session.delete()
+    return redirect('exercise_sessions')
