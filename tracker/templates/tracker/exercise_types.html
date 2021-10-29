@@ -2,8 +2,7 @@
 
 {% block content %}
 <h2>This is the start of my block content located in exercise_types.html</h2>
-<a href="/exercise_sessions"> Navigate to exercise sessions</a>
-<p>Here's my category types:</p>
+<p>Here's my exercise categories:</p>
 
 <table>
     {% for type in types %}
@@ -23,5 +22,5 @@
         </tr>
     {% endfor %}
 </table>
-<a href="/add_exercise_type"> Add a new type of exercise:</a>
+<a href="/add_exercise_type"> Add a new exercise category:</a>
 {% endblock content %}

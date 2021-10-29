@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>This is the start of my block content located in home.html</h2>
+
+<h1>This is the homepage</h1>
+
+<a  class="nav-link" href="{% url 'exercise_types' %}">Categories</a>
+<a  class="nav-link" href="{% url 'exercise_sessions' %}">Sessions</a>
+    
+
+{% endblock content %}

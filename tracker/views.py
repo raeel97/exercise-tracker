@@ -9,6 +9,9 @@ def exercise_types(request):
     }
     return render(request, 'tracker/exercise_types.html', context)
 
+def home(request):
+    return render(request, 'tracker/home.html')
+
 
 def add_exercise_type(request):
     if request.method == "POST":
