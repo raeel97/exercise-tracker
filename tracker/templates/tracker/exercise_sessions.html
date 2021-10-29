@@ -3,7 +3,12 @@
 {% block content %}
 <h2>This is the start of my block content located in exercise_sessions.html</h2>
 <p>Here's my exercise sessions:</p>
-
+<p>{{ sessions }}</p>
+{% for session in sessions %}
+    {% if forloop.last %}
+        {{ session }}
+    {% endif %}
+{% endfor %}
 <table>
     {% for session in sessions %}
         <tr>

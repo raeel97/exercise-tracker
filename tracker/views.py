@@ -10,7 +10,11 @@ def exercise_types(request):
     return render(request, 'tracker/exercise_types.html', context)
 
 def home(request):
-    return render(request, 'tracker/home.html')
+    sessions = exercise_session.objects.all()
+    context = {
+        'sessions': sessions
+    }
+    return render(request, 'tracker/home.html', context)
 
 
 def add_exercise_type(request):

@@ -4,9 +4,20 @@
 <h2>This is the start of my block content located in home.html</h2>
 
 <h1>This is the homepage</h1>
+<div>
+    {% for session in sessions %}
+    {% if forloop.last %}
+    {{ session.type_select.name }}
+    {{ session.type_select.measurement }}
+    {{ session.session_date }}
+    {{ session.additonal_notes }}
+    {% endif %}
+    {% endfor %}
 
-<a  class="nav-link" href="{% url 'exercise_types' %}">Categories</a>
-<a  class="nav-link" href="{% url 'exercise_sessions' %}">Sessions</a>
-    
+</div>
+
+<a class="nav-link" href="{% url 'exercise_types' %}">Categories</a>
+<a class="nav-link" href="{% url 'exercise_sessions' %}">Sessions</a>
+
 
 {% endblock content %}
