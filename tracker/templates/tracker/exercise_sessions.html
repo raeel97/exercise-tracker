@@ -1,34 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>This is the start of my block content located in exercise_sessions.html</h2>
-<p>Here's my exercise sessions:</p>
-<p>{{ sessions }}</p>
-{% for session in sessions %}
-    {% if forloop.last %}
-        {{ session }}
-    {% endif %}
-{% endfor %}
-<table>
-    {% for session in sessions %}
-        <tr>
-            <td>{{ session.type_select.name }}</td>
-            <td>{{ session.measurement }}</td>
-            <td>{{ session.type_select.measurement }}</td>
-            <td>{{ session.session_date }}</td>
-            <td>{{ session.additonal_notes }}</td>
-            <td>
-                <a href="/edit_exercise_session/{{ session.id }}">
-                    <button>Edit</button>
-                </a>
-            </td>
-            <td>
-                <a href="/delete_exercise_session/{{ session.id }}">
-                    <button>Delete</button>
-                </a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-<a href="/add_exercise_session"> Add a new exercise session:</a>
+<div class="container text-center mt-3">
+    <h3>Exercise Sessions</h3>
+    <h4><a href="/add_exercise_session"> Add a new exercise session:</a></h4>
+    <div class="accordion" id="accordionExample">
+        {% for session in sessions %}
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="exercise{{ session.id }}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#arr{{ session.id }}" aria-expanded="false" aria-controls="arr{{ session.id }}">
+                    {{ session.type_select.name }}
+                </button>
+            </h2>
+            <div id="arr{{ session.id }}" class="accordion-collapse collapse" aria-labelledby="exercise{{ session.id }}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p class="card-text">{{ session.type_select.measurement }}.</p>
+                    <p class="card-text">{{ session.measurement }}.</p>
+                    <p class="card-text">{{ session.session_date }}.</p>
+                    <p class="card-text">{{ session.additonal_notes }}.</p>
+                    <a href="/edit_exercise_session/{{ session.id }}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="/delete_exercise_session/{{ session.id }}">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
+
+

@@ -1,23 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>This is the start of my block content located in home.html</h2>
-
-<h1>This is the homepage</h1>
-<div>
+{% if user.is_authenticated %}
+<div class="container text-center">
+    <h3>Last exercise logged:</h3>
     {% for session in sessions %}
     {% if forloop.last %}
-    {{ session.type_select.name }}
-    {{ session.type_select.measurement }}
-    {{ session.session_date }}
-    {{ session.additonal_notes }}
-    {% endif %}
-    {% endfor %}
+    <div class="col-xs-3 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ session.type_select.name }}</h5>
+                <p class="card-text">{{ session.type_select.measurement }}.</p>
+                <p class="card-text">{{ session.measurement }}.</p>
+                <p class="card-text">{{ session.session_date }}.</p>
+                <p class="card-text">{{ session.additonal_notes }}.</p>
+            </div>
+        </div>
+    </div>
+      {% endif %}
+      {% endfor %}
+</div>
+<div class="container text-center mt-3">
+    <div class="row">
+        <div class="col-xs-6">
+            <a class="btn btn-primary btn-lg" href="{% url 'exercise_types' %}">Categories</a>
+        </div>
+        <div class="col-xs-6">
+            <a class="btn btn-primary btn-lg" href="{% url 'exercise_sessions' %}">Sessions</a>
+        </div>
+    </div>
+</div>
+<a class="nav-link"></a>
+<a class="nav-link"></a>
+{% else %}
 
+<div class="jumbotron d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-4">Welcome to Exercise Tracker</h1>
+    <p class="lead">It looks like you are not logged in, you need to have an account in order to use Exercise
+        Tracker. </p>
+    <hr class="my-4">
+    <p>Please click on the button below in order to sign in or register an account.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}" role="button">Sign In</a>
+    </p>
 </div>
 
-<a class="nav-link" href="{% url 'exercise_types' %}">Categories</a>
-<a class="nav-link" href="{% url 'exercise_sessions' %}">Sessions</a>
+{% endif %}
+
+
 
 
 {% endblock content %}
