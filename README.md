@@ -2,7 +2,7 @@
 
 [View the live project here.](https://exercise-tracker18.herokuapp.com/
 
-The 'Exercise Tracker' is a site, where users can securely log and view their exercise sessions.
+Exercise Tracker is a webapp, where users can securely log and view their exercise sessions.
 
 The site is created to engage with users who need to safely log their exercise sessions and keep track of their workouts.
 
